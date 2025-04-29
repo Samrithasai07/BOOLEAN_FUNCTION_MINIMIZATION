@@ -38,7 +38,25 @@ check outputs against expected results.
 5.	For different input combinations generate the timing diagram.
 
 ### PROGRAM:
-![Screenshot 200323](https://github.com/user-attachments/assets/3d359209-e1c0-484d-a2c8-ef2c4c6acebb)
+```
+module boolean_function_minimization(a, b, c, d, w, x, y, z, f1, f2);
+ input a, b, c, d, w, x, y, z;
+ output f1, f2;
+ wire x1, x2, x3, x4, x5, x6, x7, x8, x9, x10;
+ assign x1 = (~a) & (~b) & (~c) & (~d);
+ assign x2 = (a) & (~c) & (~d);
+ assign x3 = (~b) & (c) & (~d);
+ assign x4 = (~a) & (b) & (c) & (d);
+ assign x5 = (b) & (~c) & (d);
+ assign f1 = x1 | x2 | x3 | x4 | x5;
+ assign x6 = (x) & (~y) & (z);
+ assign x7 = (~x) & (~y) & (z);
+ assign x8 = (~w) & (x) & (y);
+ assign x9 = (w) & (~x) & (y);
+ assign x10 = (w) & (x) & (y);
+ assign f2 = x6 | x7 | x8 | x9 | x10;
+ endmodule
+```
 ### TRUTH TABLE:
 ![b15bfcd2-22c9-40b1-a6a8-b7c7a11a99db](https://github.com/user-attachments/assets/646037b4-07fa-44b5-bd2f-9cc4d3770c09)
 ### RTL REALIZATION:
